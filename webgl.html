@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Test webgl three JS</title>
+        <link type="text/css" rel="stylesheet" href="canvas.css">
+
+        <!--This is important to get a correct canvas size on mobile-->
+        <meta name='viewport' content='width=device-width, user-scalable=no'/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
+        <script src="jquery.js"></script>
+       
+    </head>
+    <body>
+            <nav class="navbar">
+                    <span class="navbar-toggle" id="js-navbar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                    
+                    <ul class="main-nav" id="js-menu">
+                        <li>
+                            <a href="#" class="nav-links">Acceuil</a>
+                        </li>
+                        <li>
+                            <a id="direct"href="#main1" class="nav-links">Infos</a>
+                        </li>
+            
+                        <li>
+                            <a href="#" class="nav-links">Blog</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="line">
+
+                    </div>
+                    
+                    
+
+
+
+                
+        
+        <script src='three.js/build/three.js'></script>
+        
+
+        <script>
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+const width = 2;  
+
+const height = 2;  
+
+const widthSegments = 2;  
+
+const heightSegments = 2;  
+const material = new THREE.MeshBasicMaterial({color: "white"});
+const geometry = new THREE.PlaneBufferGeometry(
+    width, height,
+    widthSegments, heightSegments);
+const carreauCentral = new THREE.Mesh(geometry, material);
+
+scene.add(carreauCentral);
+
+carreauCentral.position.x=0;
+    carreauCentral.position.y=0;   
+    
+    
+    
+    function makeInstance(geometry,  x,y) {  
+    const carreau = new THREE.Mesh(geometry);
+
+    scene.add(carreau);
+     
+    carreau.position.x = x;
+    carreau.position.y = y;
+
+    return carreau;
+  }
+  const carreaus = [
+    makeInstance(geometry,  0,2),
+    makeInstance(geometry, 0,-2),
+    makeInstance(geometry, 2,2),
+    makeInstance(geometry,  2,0),
+    makeInstance(geometry,  2,-2),
+    makeInstance(geometry,  -2,0),
+    makeInstance(geometry,  -2,-2),
+    makeInstance(geometry,  -2,2)
+
+  ];
+
+camera.position.z = 5;
+var loader = new THREE.FontLoader();
+
+
+
+function render(time) {
+    time *= 0.001;  // convert time to seconds
+    
+
+    
+    carreauCentral.rotation.x =3*time;
+    carreauCentral.rotation.y = 3*time;
+   
+    
+    
+    carreaus.forEach((carreau) => {
+        
+        carreau.rotation.x = time;
+        carreau.rotation.y = time;
+       
+       
+    
+    
+    });
+    function clicked(){
+    document.getElementById("desc").style.visibility="visible";
+
+    }
+    
+
+
+
+    renderer.render(scene, camera);
+
+    requestAnimationFrame(render);
+}
+  requestAnimationFrame(render);
+  function animate() {
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+}
+
+
+animate();
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script> 
+        $(document).ready(function(){
+          $("#direct").click(function(){
+            $("#main1").slideDown("slow");
+          });
+        });
+        </script>
+    <div id="line">
+
+    </div>
+    <div id="main1">
+       
+       
+    </div>
+
+
+
+    </body>
+</html>
+ 
