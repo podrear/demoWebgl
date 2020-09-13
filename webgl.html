@@ -8,7 +8,7 @@
         <!--This is important to get a correct canvas size on mobile-->
         <meta name='viewport' content='width=device-width, user-scalable=no'/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
-        <script src="jquery.js"></script>
+    
        
     </head>
     <body>
@@ -22,7 +22,7 @@
                             <a href="#" class="nav-links">Acceuil</a>
                         </li>
                         <li>
-                            <a id="direct"href="#main1" class="nav-links">Infos</a>
+                            <a id="direct"href="#line2" class="nav-links">Infos</a>
                         </li>
             
                         <li>
@@ -33,21 +33,26 @@
                 <div id="line">
 
                     </div>
-                    
+                    <canvas id="c"></canvas>
                     
 
 
 
                 
         
-        <script src='three.js/build/three.js'></script>
+        
         
 
         <script>
+    const canvas = document.querySelector('#c');
+    const renderer = new THREE.WebGLRenderer({
+    canvas,
+    alpha: true,
+  });
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-var renderer = new THREE.WebGLRenderer();
+
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 const width = 2;  
@@ -93,7 +98,7 @@ carreauCentral.position.x=0;
   ];
 
 camera.position.z = 5;
-var loader = new THREE.FontLoader();
+
 
 
 
@@ -120,7 +125,6 @@ function render(time) {
     document.getElementById("desc").style.visibility="visible";
 
     }
-    
 
 
 
@@ -149,9 +153,20 @@ animate();
 
     </div>
     <div id="main1">
-       
+       <p id="presentation">
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. <br\>
+           Consectetur quod reiciendis adipisci veniam sed in debitis doloremque excepturi explicabo illum? <br\>
+           Voluptatem, veniam! <br\>
+           Facilis sit illum distinctio optio fugiat mollitia ea!<br\>
+       </p>
+
+
        
     </div>
+    <div id="line2">
+        
+    </div>
+    </body>
 
 
 

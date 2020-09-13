@@ -90,16 +90,26 @@
             #main1{
                 margin-top: auto;
                 padding-top: 10px;
-                background-color:rgb(0, 0, 22);
+                background-color:purple;
                 height: 200px;
                 display: none;
             }
-            #line{
+            #line , #line2{
                 margin-top: -5px;
                 padding-top: 5px;
                 height: 5px;
                 width: auto;
                 background-color:rgb(6, 251, 255) ;
+            }
+            #presentation{
+                color: aliceblue;
+            }
+            #c{
+                width: 100vw;
+                height: 100vh;
+                display: block;
+                background: url(https://www.xtrafondos.com/wallpapers/retrowave-montanas-de-lineas-estrellas-y-sol-4467.jpg) no-repeat center center ;
+                background-size: cover;
             }
            
             
