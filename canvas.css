@@ -90,7 +90,7 @@
             #main1{
                 margin-top: auto;
                 padding-top: 10px;
-                background-color:purple;
+               background:linear-gradient(to left top, blue, red);
                 height: 200px;
                 display: none;
             }

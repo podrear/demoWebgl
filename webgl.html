@@ -55,9 +55,11 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHe
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+
+//  carreau central
 const width = 2;  
 
-const height = 2;  
+const height =2 ;  
 
 const widthSegments = 2;  
 
@@ -70,21 +72,23 @@ const carreauCentral = new THREE.Mesh(geometry, material);
 
 scene.add(carreauCentral);
 
+//positionnement du carreau central
 carreauCentral.position.x=0;
     carreauCentral.position.y=0;   
     
     
-    
+// tableau de carreaux     
     function makeInstance(geometry,  x,y) {  
     const carreau = new THREE.Mesh(geometry);
 
     scene.add(carreau);
-     
+  //positionnement d'un carreau   
     carreau.position.x = x;
     carreau.position.y = y;
 
     return carreau;
   }
+  // création des carreaux avec leurs position
   const carreaus = [
     makeInstance(geometry,  0,2),
     makeInstance(geometry, 0,-2),
@@ -101,7 +105,7 @@ camera.position.z = 5;
 
 
 
-
+//rotation des carreaux 
 function render(time) {
     time *= 0.001;  // convert time to seconds
     
@@ -121,14 +125,12 @@ function render(time) {
     
     
     });
-    function clicked(){
-    document.getElementById("desc").style.visibility="visible";
-
-    }
 
 
 
+    //création du render et de la scene + animation de la scene.
     renderer.render(scene, camera);
+    
 
     requestAnimationFrame(render);
 }
@@ -140,6 +142,10 @@ function render(time) {
 
 
 animate();
+function clicked(){
+    document.getElementById("desc").style.visibility="visible";
+
+    }
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script> 
